@@ -2,7 +2,7 @@ import telebot
 import emoji
 import blackjack_engine
 
-bot = telebot.TeleBot("*****")
+bot = telebot.TeleBot("824642016:AAGdqfBwDRzesEdl0-efH_0emqETDwNyT78")
 
 SUIT = {
     'S': ':spade_suit:',
@@ -130,6 +130,9 @@ def answer_message(message):
             bot.send_message(message.chat.id, player_loose(),
                          reply_markup=keyboard1)
         elif user.blackjack():
+            user.leave_cards()
+            dealer.leave_cards()
+            deck.__init__()
             bot.send_message(message.chat.id, emoji.emojize(':trophy:') +
                              ' Поздравляем! У вас блэкджек!', reply_markup=keyboard1)
 
